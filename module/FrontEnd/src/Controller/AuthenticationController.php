@@ -49,4 +49,10 @@ class AuthenticationController extends AbstractActionController
             'form' => $form
         ]);
     }
+    
+    public function logoutAction()
+    {
+        $this->authenticationService->clearIdentity();
+        return $this->redirect()->toRoute('authentication');
+    }
 }
