@@ -54,6 +54,16 @@ return [
                     ],
                 ],
             ],
+            'payments' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/payments[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\PaymentsController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'taxes' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -77,6 +87,10 @@ return [
                 'route' => 'invoices',
             ],
             [
+                'label' => 'Payments',
+                'route' => 'payments',
+            ],
+            [
                 'label' => 'Taxes',
                 'route' => 'taxes',
             ]
@@ -88,6 +102,7 @@ return [
             Controller\CustomersController::class => InvokableFactory::class,
             Controller\DashboardController::class => InvokableFactory::class,
             Controller\InvoicesController::class => InvokableFactory::class,
+            Controller\PaymentsController::class => InvokableFactory::class,
             Controller\TaxesController::class => InvokableFactory::class,
         ],
     ],
@@ -111,6 +126,16 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'translator' => [
+        'locale' => 'en_US',
+        'translation_file_patterns' => [
+            [
+                'type'     => 'gettext',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern'  => '%s.mo',
+            ],
         ],
     ],
 ];

@@ -42,7 +42,4 @@ return [
     'session_storage' => [
         'type' => \Zend\Session\Storage\SessionArrayStorage::class
     ],
-    'translator' => [
-        'locale' => 'en_US',
-    ],
 ];
