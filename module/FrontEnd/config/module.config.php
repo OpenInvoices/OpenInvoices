@@ -24,6 +24,16 @@ return [
                     ],
                 ],
             ],
+            'authentication' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/auth[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\AuthenticationController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'customers' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -74,10 +84,17 @@ return [
     ],
     'controllers' => [
         'factories' => [
+            Controller\AuthenticationController::class => Controller\Factory\AuthenticationControllerFactory::class,
             Controller\CustomersController::class => InvokableFactory::class,
             Controller\DashboardController::class => InvokableFactory::class,
             Controller\InvoicesController::class => InvokableFactory::class,
             Controller\TaxesController::class => InvokableFactory::class,
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            \Zend\Authentication\AuthenticationService::class => Service\AuthenticationServiceFactory::class,
+            \Zend\Db\Adapter\Adapter::class => 'Zend\Db\Adapter\AdapterServiceFactory',
         ],
     ],
     'view_manager' => [
@@ -88,6 +105,7 @@ return [
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/authentication'   => __DIR__ . '/../view/layout/authentication.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
