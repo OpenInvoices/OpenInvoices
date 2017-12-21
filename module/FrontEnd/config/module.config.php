@@ -24,21 +24,60 @@ return [
                     ],
                 ],
             ],
-            'dashboard' => [
+            'customers' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/dashboard[/:action]',
+                    'route'    => '/customers[/:action]',
                     'defaults' => [
-                        'controller' => Controller\DashboardController::class,
+                        'controller' => Controller\CustomersController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'invoices' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/invoices[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\InvoicesController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'taxes' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/taxes[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\TaxesController::class,
                         'action'     => 'index',
                     ],
                 ],
             ],
         ],
     ],
+    'navigation' => [
+        'default' => [
+            [
+                'label' => 'Customers',
+                'route' => 'customers',
+            ],
+            [
+                'label' => 'Invoices',
+                'route' => 'invoices',
+            ],
+            [
+                'label' => 'Taxes',
+                'route' => 'taxes',
+            ]
+        ]
+    ],
     'controllers' => [
         'factories' => [
+            Controller\CustomersController::class => InvokableFactory::class,
             Controller\DashboardController::class => InvokableFactory::class,
+            Controller\InvoicesController::class => InvokableFactory::class,
+            Controller\TaxesController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
