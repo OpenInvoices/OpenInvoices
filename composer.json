@@ -1,0 +1,22 @@
+{
+    "name": "openinvoices/openinvoices",
+    "description": "Open Invoices. Invoicing application.",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "mvc",
+        "zf",
+		"invoice"
+    ],
+    "homepage": "https://github.com/OpenInvoices",
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "zendframework/zend-mvc": "^3.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/"
+        }
+    }
+}
