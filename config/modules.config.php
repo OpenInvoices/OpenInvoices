@@ -13,5 +13,11 @@
 return [
     'Zend\Router',
     'Zend\Validator',
-    'Application',
+    'Zend\Navigation',
+    'Zend\Db',
+    'Zend\I18n',
+    'Zend\Mvc\I18n',
+    'Zend\Session',
+    'Zend\Form',
+    'OpenInvoices\FrontEnd',
 ];

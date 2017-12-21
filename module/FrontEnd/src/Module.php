@@ -5,11 +5,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace OpenInvoices\FrontEnd;
 
 class Module
 {
-    const VERSION = '3.0.3-dev';
+    const VERSION = '0.0.1-dev';
 
     public function getConfig()
     {
