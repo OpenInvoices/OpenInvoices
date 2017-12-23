@@ -33,7 +33,6 @@ class AuthenticationController extends AbstractActionController
                 $adapter = $this->authenticationService->getAdapter();
                 $adapter->setIdentity($data['username']);
                 $adapter->setCredential($data['password']);
-                $adapter->setCredentialTreatment('MD5(?)');
                 if ($this->authenticationService->authenticate()->isValid()) {
                     return $this->redirect()->toRoute( 'home');
                 }

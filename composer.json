@@ -23,7 +23,8 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenInvoices\\FrontEnd\\": "module/FrontEnd/src/"
+            "OpenInvoices\\FrontEnd\\": "module/FrontEnd/src/",
+            "OpenInvoices\\Authentication\\": "module/Authentication/src"
         }
     }
 }

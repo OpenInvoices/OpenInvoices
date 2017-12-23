@@ -20,4 +20,5 @@ return [
     'Zend\Session',
     'Zend\Form',
     'OpenInvoices\FrontEnd',
+    'OpenInvoices\Authentication',
 ];
